@@ -20,7 +20,9 @@ function initMap() {
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>'
   }).addTo(map);
 
- 
+  // This customizes link to view source code; add your own GitHub repository
+  map.attributionControl
+  .setPrefix('View <a href="http://github.com/jackdougherty/leaflet-storymap" target="_blank">code on GitHub</a>, created with <a href="http://leafletjs.com" title="A JS library for interactive maps">Leaflet</a>');
 
   // This loads the GeoJSON map data file from a local folder
   $.getJSON('map.geojson', function(data) {
@@ -31,7 +33,7 @@ function initMap() {
           // OR remove the next 6 lines for default blue Leaflet markers
           var numericMarker = L.ExtraMarkers.icon({
             icon: 'fa-number',
-            number: feature.properties["id"],
+            number: feature.properties['id'],
             markerColor: 'blue'
           });
           layer.setIcon(numericMarker);
